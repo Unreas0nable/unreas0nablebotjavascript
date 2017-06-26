@@ -280,7 +280,8 @@ client.channels.get('327614673799217152').sendMessage({embed: {
 client.on('ready', () => {
     client.user.setGame("use uj!help")
  //   setTimeout(10000);
-    client.user.setGame("Unreas is asleep")
+ //   client.user.setGame("Unreas is asleep")
+
     console.log("client.user.setGame(**use uj!help**) is successful")
 })
 
