@@ -20,11 +20,9 @@ function hasRole(mem, role) {
 }
 
 // make a new stream for each time someone starts to talk
-function generateOutputFile(channel, member) {
+
   // use IDs instead of username cause some people have stupid emojis in their name
-  const fileName = `./recordings/${channel.id}-${member.id}-${Date.now()}.pcm`;
-  return fs.createWriteStream(fileName);
-    }
+
 //This is the startup area
 client.on('ready', () => {
     console.log('The bot is online!');
@@ -40,10 +38,12 @@ client.on('ready', () => {
     console.log(`${msg.author.username} sent a message in #${msg.channel.name} - ${msg}`);
 })
 
-client.on('guildMemberAdd', (guildMember) => {
-    const nickname = guildMember.nickname || guildMember.user.username;
-    guildMember.guild.defaultChannel.sendMessage(`Welcome to the ${guildMember.guild.name} party, ${nickname}!`);
-});
+    client.on('ready', () => {
+        console.log('Bot Username');
+        console.log([client.user.username]);
+        console.log('Client ID');
+        console.log([client.user.id]);
+    })
 
 client.on('ready', () => {
     console.log('I am now up and running!');
@@ -279,6 +279,8 @@ client.channels.get('327614673799217152').sendMessage({embed: {
 
 client.on('ready', () => {
     client.user.setGame("use uj!help")
+ //   setTimeout(10000);
+    client.user.setGame("Unreas is asleep")
     console.log("client.user.setGame(**use uj!help**) is successful")
 })
 
