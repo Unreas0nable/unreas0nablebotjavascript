@@ -43,6 +43,7 @@ client.on('ready', () => {
         console.log([client.user.username]);
         console.log('Client ID');
         console.log([client.user.id]);
+        console.log("I'm in - " + client.guilds.size + " - servers");
     })
 
 client.on('ready', () => {
@@ -89,13 +90,12 @@ client.channels.get('327614673799217152').sendMessage({embed: {
 //Receiving DMs
 
 //This is the command area
-
 client.on('message', message => {
     var args = message.content.split(/[ ]+/);
-/*    if(commandIs("hello", message)){
+    if(commandIs("hello", message)){
 //        console.log(message.author.username + args);
-        message.channel.sendMessage('Hello there, ' + message.author.username);
-    } */
+        message.reply('Hello there, ' + message.author.username);
+    }
     if(commandIs("introduction", message)){
 //        console.log(message.author.username + args);
         message.channel.sendMessage('UnreasonableBot is a simple bot created by Unfσrgσττεn | v.7,' + message.author.username);
@@ -106,7 +106,9 @@ client.on('message', message => {
             if(args.length === 1){
                 message.channel.sendMessage('You did not define a argument. Usage: `uj!say [message to say]`');
             } else {
+                message.delete()
                 message.channel.sendMessage(args.join(" ").substring(7));
+                client.channels.get('328225959117455362').sendMessage("**" + message.author.username + ":" + " uj!say " + args.join(" ").substring(7) + "**");
 
             }
         } else {
@@ -258,10 +260,11 @@ client.on('message', message => {
 //        console.log(message.author.username + args);
         message.channel.send("┬─┬ ノ( ゜-゜ノ) **DO NOT FLIP THE TABLE!**");
     }
-});
-    if(message.content === "Hello, " + <@328986208199770112>) {
-      message.channel.send("Hiya!, " message.author.username + "~");
+    if(message.content === "Hello, UnreasBot") {
+      message.reply(" hiya! ~");
     }
+
+});
 //This is the embed area
 /*    if(commandIs("embed", message)){
 client.channels.get('327614673799217152').sendMessage({embed: {
