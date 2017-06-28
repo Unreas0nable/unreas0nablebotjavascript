@@ -92,10 +92,10 @@ client.channels.get('327614673799217152').sendMessage({embed: {
 
 client.on('message', message => {
     var args = message.content.split(/[ ]+/);
-    if(commandIs("hello", message)){
+/*    if(commandIs("hello", message)){
 //        console.log(message.author.username + args);
         message.channel.sendMessage('Hello there, ' + message.author.username);
-    }
+    } */
     if(commandIs("introduction", message)){
 //        console.log(message.author.username + args);
         message.channel.sendMessage('UnreasonableBot is a simple bot created by Unfσrgσττεn | v.7,' + message.author.username);
@@ -107,7 +107,7 @@ client.on('message', message => {
                 message.channel.sendMessage('You did not define a argument. Usage: `uj!say [message to say]`');
             } else {
                 message.channel.sendMessage(args.join(" ").substring(7));
-                
+
             }
         } else {
             message.channel.sendMessage('You are not an `Admin`.');
@@ -140,7 +140,7 @@ client.on('message', message => {
             client.channels.get('327614673799217152').sendMessage('@everyone **I am offline approximately in 1 minute.**');
         }
     }
-    if(commandIs("end", message)){    
+    if(commandIs("end", message)){
         if(hasRole(message.member, "Owner")){
 //            console.log(message.author.username + args);
             process.exit();
@@ -164,12 +164,12 @@ client.on('message', message => {
         if(hasRole(message.member, "Owner")){
             console.log(message.author.username + args);
             client.channels.get('327614673799217152').sendMessage('**I have started.**');
-            
+
         }
     }
 */    if(commandIs("testing", message)){
         if(hasRole(message.member, "Owner")){
-//            console.log(message.author.username + args);    
+//            console.log(message.author.username + args);
             client.channels.get('327614673799217152').sendMessage('**I am not a complete bot.**');
         }
     }
@@ -186,19 +186,17 @@ client.on('message', message => {
     if(commandIs("ping", message)) {
         message.channel.sendMessage("Pong!");
 /*    }
-    if(commandIs("pm", message)) {
-            if(args.length === 1){
-                message.channel.sendMessage('You did not define a argument. Usage: `uj!say [message to say]`');
-        } else {
-            message.channel.sendMessage(message.mentions.users.first()).sendMessage();
-        }
-    }*/
+    if(msg.content.startsWith(prefix + "dm")) {
+        let content = args.join(" ")
+        msg.channel.sendMessage(content)
+        console.log(msg.author.name + " just made the bot DM him/her" + content + " in " + msg.guild)
+*/    }
 //Dangerous Usage
     if(commandIs('warn', message)){
         console.log(message.author.username + args);
         client.channels.get('328217358399438848')
         if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.').catch(console.error);
-        } //else {
+       // } //else {
 //            client.channels.get('328217358399438848').sendMessage(());
     }
     if(commandIs("kick", message)){
@@ -261,6 +259,9 @@ client.on('message', message => {
         message.channel.send("┬─┬ ノ( ゜-゜ノ) **DO NOT FLIP THE TABLE!**");
     }
 });
+    if(message.content === "Hello, " + <@328986208199770112>) {
+      message.channel.send("Hiya!, " message.author.username + "~");
+    }
 //This is the embed area
 /*    if(commandIs("embed", message)){
 client.channels.get('327614673799217152').sendMessage({embed: {
@@ -268,7 +269,7 @@ client.channels.get('327614673799217152').sendMessage({embed: {
   description: "A very simple Embed!"
 }});
 //This is the help area
-} */    
+} */
 
 //This is the testing area
 /*    if(commandIs("ping", message)) {
